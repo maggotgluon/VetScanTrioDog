@@ -115,11 +115,39 @@ class Register extends Component
         }
         // go next
         if($this->getErrorBag()->isEmpty()){
-            $this->currentStep = 2;
+            $this->currentStep = 1.75;
         }
     }
 
+    public function petSelected(){
+
+        // $validatedData = $this->validate([
+        //     'regClient.pet_name' => ['required', 'string', 'max:255'],
+        //     'regClient.pet_breed' => ['required', 'string', 'max:255'],
+        //     'regClient.pet_weight' => ['required', 'string', 'max:255'],
+        //     'regClient.pet_age_year' => ['required', 'numeric'],
+        //     'regClient.pet_age_month' => ['required', 'numeric'],
+        // ],[
+        //     'regClient.*.required'=>'จำเป็นต้องระบุ',
+        // ]);
+        // go next
+        $this->currentStep = 2;
+    }
     public function petStepSubmit(){
+        // validate
+        $validatedData = $this->validate([
+            'regClient.pet_name' => ['required', 'string', 'max:255'],
+            'regClient.pet_breed' => ['required', 'string', 'max:255'],
+            'regClient.pet_weight' => ['required', 'string', 'max:255'],
+            'regClient.pet_age_year' => ['required', 'numeric'],
+            'regClient.pet_age_month' => ['required', 'numeric'],
+        ],[
+            'regClient.*.required'=>'จำเป็นต้องระบุ',
+        ]);
+        // go next
+        $this->currentStep = 2.5;
+    }
+    public function petMoreInfoSubmit(){
         // validate
         $validatedData = $this->validate([
             'regClient.pet_name' => ['required', 'string', 'max:255'],

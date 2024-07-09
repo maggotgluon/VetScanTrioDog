@@ -118,8 +118,32 @@
         </div>
     </div>
 
+    {{-- cat dog select --}}
+    <div class="setup-content  min-h-[70vh] flex flex-col {{ $currentStep != 1.75 ? 'hidden' : '' }}" id="step-2">
+        <div class="mt-8 pb-2">
+            <h3 class="text-center text-xl pb-2 font-bold text-primary-blue"> กรุณาเลือกชนิดสัตว์ของท่าน </h3>
+            
+        </div>
+
+        <div class="grid gap-2 pb-8">
+            
+            <x-button label="หมา"/>
+            <x-button label="แมว"/>
+        </div>
+
+
+
+        <div class="py-2 text-center flex justify-center mt-auto" wire:loading.remove>
+            <x-button lg right-icon="chevron-right" primary class="bg-gradient-to-br from-gradient-start to-gradient-end rounded-2xl"
+            wire:click="petSelected" type="button" label="ถัดไป" />
+        </div>
+        <div class="py-2 text-center flex justify-center mt-auto" wire:loading>
+            กำลังดำเนินการ...
+        </div>
+    </div>
+
     {{-- cat info --}}
-    <div class="setup-content  min-h-[70vh] flex flex-col {{ $currentStep != 2 ? 'hidden' : '' }}" id="step-2">
+    <div class="setup-content  min-h-[70vh] flex flex-col {{ $currentStep != 2 ? 'hidden' : '' }}" id="step-2-5">
         <div class="mt-8 pb-2">
             <h3 class="text-center text-xl pb-2 font-bold text-primary-blue"> กรุณากรอกข้อมูลแมว </h3>
             <p class="text-center">
@@ -165,6 +189,49 @@
         <div class="py-2 text-center flex justify-center mt-auto" wire:loading.remove>
             <x-button lg right-icon="chevron-right" primary class="bg-gradient-to-br from-gradient-start to-gradient-end rounded-2xl"
             wire:click="petStepSubmit" type="button" label="ถัดไป" />
+        </div>
+        <div class="py-2 text-center flex justify-center mt-auto" wire:loading>
+            กำลังดำเนินการ...
+        </div>
+    </div>
+
+
+    {{-- cat more info --}}
+    <div class="setup-content  min-h-[70vh] flex flex-col {{ $currentStep != 2.5 ? 'hidden' : '' }}" id="step-2-5">
+        <div class="mt-8 pb-2">
+            <h3 class="text-center text-xl pb-2 font-bold text-primary-blue"> กรุณากรอกข้อมูลแมว </h3>
+            <p class="text-center">
+                ที่ต้องการเข้าร่วมโปรแกรม<br>
+                {{env('APP_NAME')}}
+            </p>
+        </div>
+
+        <div class="grid gap-2 pb-8">
+
+            เลือกช่วงน้ำหนักของแมว
+            <div class="grid gap-2">
+                <span class="my-2">
+                    <x-radio id="weigth-1" value="1.25-2.5 กก." label="1.25-2.5 กก." wire:model.defer="regClient.pet_weight" />
+                </span>
+                <span class="my-2">
+                    <x-radio id="weigth-2" value="2.6-5 กก." label="2.6-5 กก." wire:model.defer="regClient.pet_weight" />
+                </span>
+                <span class="my-2">
+                    <x-radio id="weigth-3" value="5.1-10 กก." label="5.1-10 กก." wire:model.defer="regClient.pet_weight" />
+                </span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+                <x-native-select label="อายุ (ปี)" wire:model.defer="regClient.pet_age_year" placeholder="ระบุปี" :options="['0','1', '2', '3', '4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20']" />
+                <x-native-select label="อายุ (เดือน)" wire:model.defer="regClient.pet_age_month" placeholder="ระบุเดือน" :options="['0','1', '2', '3', '4','5','6','7','8','9','10','11']" />
+            </div>
+        </div>
+
+        <x-input wire:model.defer="regClient.pet_breed" label="กรุณาระบุโรคประจำตัว (ถ้ามี)" placeholder="ชื่อสายพันธุ์แมว" />
+
+        <div class="py-2 text-center flex justify-center mt-auto" wire:loading.remove>
+            <x-button lg right-icon="chevron-right" primary class="bg-gradient-to-br from-gradient-start to-gradient-end rounded-2xl"
+            wire:click="petMoreInfoSubmit" type="button" label="ถัดไป" />
         </div>
         <div class="py-2 text-center flex justify-center mt-auto" wire:loading>
             กำลังดำเนินการ...
@@ -241,39 +308,4 @@
         </div>
     </div>
 
-    {{-- confirm regis --}}
-    {{-- <div class="row setup-content  min-h-[70vh] flex flex-col {{ $currentStep != 4 ? 'hidden' : '' }}" id="step-4">
-        <div class="mt-8 pb-2">    
-        <h3 class="text-center text-xl my-8 p-4 font-bold text-white bg-primary-blue"> การลงทะเบียนเสร็จสมบูรณ์ </h3>
-        <p class="text-center">
-            ท่านได้รับสิทธิ์ รับคำปรึกษา<br>
-            และเข้าร่วมโปรแกรม {{env('APP_NAME')}}<br>
-            {{env('APP_TAGLINE')}}<br>
-
-        </p>
-        </div>
-        <img class="my-4 px-8" src="{{url('/app-banner.png')}}" />
-        <p class="text-center">
-            สามารถพา {{$pet_name}}<br>
-            ขนาด {{$pet_weight}}<br>
-            ไปรับคำปรึกษา <br>
-            และเข้าร่วมโปรแกรม {{env('APP_NAME')}}<br>
-            ได้ที่โรงพยาบาล/คลินิก {{$vet_id?App\Models\Vet::find($vet_id)->vet_name:'-'}} ครับ<br>
-        </p>
-        <p class="text-center text-xs text-secondary-red">
-            กรุณากดรับสิทธิ์ขณะที่ท่านอยู่ที่คลินิกตามที่ลงทะเบียน<br>
-            เพื่อโชว์หลักฐานการลงทะเบียนให้คลินิกรับทราบ<br>
-            (รหัสมีอายุ 15 นาที)
-        </p>
-
-        <div class="py-2 text-center flex justify-center mt-auto">
-            <!-- <div></div> -->
-            <!-- <x-button lg outline icon="chevron-left" primary
-                wire:click="back(1)" type="button" label="Back" /> -->
-
-            <x-button lg right-icon="chevron-right" primary class="bg-gradient-to-br from-gradient-start to-gradient-end rounded-2xl" wire:click="activateClient()" type="button" label="กดเพื่อแสดงหลักฐาน" />
-
-        </div>
-
-    </div> --}}
 </div>

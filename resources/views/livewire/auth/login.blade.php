@@ -3,7 +3,7 @@
 <div>
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
         <a href="{{ route('home') }}">
-            <x-logo class="w-auto h-16 mx-auto text-indigo-600" />
+            <x-logo class="w-auto h-32 mx-auto text-indigo-600" />
         </a>
 
         @if (Route::has('register'))
@@ -24,7 +24,7 @@
                 <span class="my-1"> </span>
                 <x-checkbox label="จดจำรหัสผ่านของฉันเอาไว้" wire:model.defer="remember"/>
                 <span class="my-4"> </span>
-                <x-button xl primary type="submit" right-icon="chevron-right" label="Login" wire:click="authenticate" />
+                <x-button xl class="bg-primary-blue" type="submit" right-icon="chevron-right" label="Login" wire:click="authenticate" />
             </form>
         </div>
     </div>

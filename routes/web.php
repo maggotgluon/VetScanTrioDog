@@ -88,7 +88,7 @@ Route::middleware('auth')->name('ma.')->prefix('ma')->group(function (){
     Route::get('/vet/edit/{vet?}', ManagementVetEdit::class)->name('vet.edit');
     
 });
-// Route::get('/', ClientRegister::class)->name('home');
+Route::get('/test', ClientRegister::class)->name('home');
 Route::get('/', function () {
     return view('maintenance');
 })->name('home');

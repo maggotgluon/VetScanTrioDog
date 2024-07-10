@@ -27,13 +27,13 @@
         <!-- <h3> Step 1</h3> -->
         <!-- $status -->
         <div class="text-center mt-8  py-4">
-            ฟรี! ลงทะเบียนรับคำปรึกษา<br>
-            และรับสิทธิพิเศษเข้าร่วม<br>
-            โปรแกรม {{env('APP_NAME')}}<br>
-            {{env('APP_TAGLINE')}} <br>
+            ใาตรวจสุขภาพวันนี้<br>
+            กับโปรแกรมตรวจสุขถาพ<br>
+            ที่ใช้เลือดปริมาณน้อย<br>
+            รู้ผลภายใน 12 นาที<br>
         </div>
         <div class="grid gap-2 pb-8">
-            <p>ข้อมูลเจ้าของแมว</p>
+            <p>ข้อมูลเจ้าของ</p>
             <x-input wire:model.defer="regClient.firstname" label="ชื่อ" placeholder="ชื่อ" required />
             <x-input wire:model.defer="regClient.lastname" label="นามสกุล" placeholder="นามสกุล" required />
             <x-input wire:model.defer="regClient.phone" maxlength="10" minlength="10"
@@ -126,9 +126,13 @@
         </div>
 
         <div class="grid gap-2 pb-8">
-            
-            <x-button label="หมา"/>
-            <x-button label="แมว"/>
+
+            <span class="my-2">
+                <x-radio id="type-1" value="หมา" label="หมา" wire:model.defer="regClient.pet_type" />
+            </span>
+            <span class="my-2">
+                <x-radio id="type-2" value="แมว" label="แมว" wire:model.defer="regClient.pet_type" />
+            </span>
         </div>
 
 
@@ -156,7 +160,7 @@
             <x-input wire:model.defer="regClient.pet_name" label="ชื่อแมว" placeholder="ชื่อแมว" />
             <x-input wire:model.defer="regClient.pet_breed" label="ชื่อสายพันธุ์แมว" placeholder="ชื่อสายพันธุ์แมว" />
 
-            เลือกช่วงน้ำหนักของแมว
+            เลือกช่วงน้ำหนักของ{{$regClient['pet_type']}}
             <div class="grid grid-cols-2 gap-2">
                 <span class="my-2">
                     <x-radio id="weigth-1" value="1.25-2.5 กก." label="1.25-2.5 กก." wire:model.defer="regClient.pet_weight" />
@@ -201,33 +205,31 @@
         <div class="mt-8 pb-2">
             <h3 class="text-center text-xl pb-2 font-bold text-primary-blue"> กรุณากรอกข้อมูลแมว </h3>
             <p class="text-center">
-                ที่ต้องการเข้าร่วมโปรแกรม<br>
+                ที่ต้องการตรวจสุขภาพ<br>
                 {{env('APP_NAME')}}
             </p>
         </div>
 
         <div class="grid gap-2 pb-8">
 
-            เลือกช่วงน้ำหนักของแมว
+            สัตว์เลิ้ยงของท่านตรวจสุขภาพครั้งสุดท้ายเมื่อไหร่
             <div class="grid gap-2">
                 <span class="my-2">
-                    <x-radio id="weigth-1" value="1.25-2.5 กก." label="1.25-2.5 กก." wire:model.defer="regClient.pet_weight" />
+                    <x-radio id="check-1" value="ไม่เคยตรวจเลย" label="ไม่เคยตรวจเลย" wire:model.defer="regClient.vet_check" />
                 </span>
                 <span class="my-2">
-                    <x-radio id="weigth-2" value="2.6-5 กก." label="2.6-5 กก." wire:model.defer="regClient.pet_weight" />
+                    <x-radio id="check-2" value="ภายใน 6 เดือน" label="ภายใน 6 เดือน" wire:model.defer="regClient.vet_check" />
                 </span>
                 <span class="my-2">
-                    <x-radio id="weigth-3" value="5.1-10 กก." label="5.1-10 กก." wire:model.defer="regClient.pet_weight" />
+                    <x-radio id="check-3" value="6 - 12 เดือน" label="6 - 12 เดือน" wire:model.defer="regClient.vet_check" />
                 </span>
-            </div>
-
-            <div class="grid grid-cols-2 gap-2">
-                <x-native-select label="อายุ (ปี)" wire:model.defer="regClient.pet_age_year" placeholder="ระบุปี" :options="['0','1', '2', '3', '4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20']" />
-                <x-native-select label="อายุ (เดือน)" wire:model.defer="regClient.pet_age_month" placeholder="ระบุเดือน" :options="['0','1', '2', '3', '4','5','6','7','8','9','10','11']" />
+                <span class="my-2">
+                    <x-radio id="check-3" value="มากกว่า 1 ปี" label="มากกว่า 1 ปี" wire:model.defer="regClient.vet_check" />
+                </span>
             </div>
         </div>
 
-        <x-input wire:model.defer="regClient.pet_breed" label="กรุณาระบุโรคประจำตัว (ถ้ามี)" placeholder="ชื่อสายพันธุ์แมว" />
+        <x-input wire:model.defer="regClient.ChronicDisease" label="กรุณาระบุโรคประจำตัว (ถ้ามี)" placeholder="หากไม่มีให้เว้นว่างไว้" />
 
         <div class="py-2 text-center flex justify-center mt-auto" wire:loading.remove>
             <x-button lg right-icon="chevron-right" primary class="bg-gradient-to-br from-gradient-start to-gradient-end rounded-2xl"

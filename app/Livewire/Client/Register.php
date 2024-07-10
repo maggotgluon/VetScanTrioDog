@@ -34,11 +34,14 @@ class Register extends Component
             'phone'=>null,
             'email'=>null,
             'consent'=>null,
+            'pet_type'=>null,
             'pet_name'=>null,
             'pet_breed'=>null,
             'pet_weight'=>null,
             'pet_age_year'=>null,
             'pet_age_month'=>null,
+            'vet_check'=>'ไม่เคยตรวจเลย',
+            'ChronicDisease'=>null,
             'vet_id'=>null,
         ];
         // $this->regClient['consent']=true;
@@ -49,11 +52,14 @@ class Register extends Component
                 'phone'=>'',
                 'email'=>'',
                 'consent'=>true,
+                'pet_type'=>null,
                 'pet_name'=>'petname',
                 'pet_breed'=>'breed',
                 'pet_weight'=>'1.25-2.5 กก.',
                 'pet_age_year'=>'1',
                 'pet_age_month'=>'1',
+                'vet_check'=>'ไม่เคยตรวจเลย',
+                'ChronicDisease'=>null,
                 'vet_id'=>null];
         }
         $this->selected_vet=[
@@ -159,6 +165,7 @@ class Register extends Component
             'regClient.*.required'=>'จำเป็นต้องระบุ',
         ]);
         // go next
+        dd($this->regClient);
         $this->currentStep = 3;
     }
 
@@ -171,7 +178,6 @@ class Register extends Component
         ]);
 
         // create client
-        
         $client = clientModel::updateOrCreate([
             'phone'=>$this->regClient['phone'],
         ],[

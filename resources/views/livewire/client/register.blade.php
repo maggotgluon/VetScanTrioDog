@@ -27,7 +27,7 @@
         <!-- <h3> Step 1</h3> -->
         <!-- $status -->
         <div class="text-center mt-8  py-4">
-            ใาตรวจสุขภาพวันนี้<br>
+            มาตรวจสุขภาพวันนี้<br>
             กับโปรแกรมตรวจสุขถาพ<br>
             ที่ใช้เลือดปริมาณน้อย<br>
             รู้ผลภายใน 12 นาที<br>
@@ -125,14 +125,17 @@
             
         </div>
 
-        <div class="grid gap-2 pb-8">
-
-            <span class="my-2">
+        <div class="grid grid-cols-2 gap-2 pb-8 justify-items-center">
+            <label class="grid justify-items-center" for="type-1">
+                <img src="{{asset('img/dog.png')}}"/>
                 <x-radio id="type-1" value="หมา" label="หมา" wire:model.defer="regClient.pet_type" />
-            </span>
-            <span class="my-2">
+            </label>
+            
+            <label class="grid justify-items-center" for="type-2">
+                <img src="{{asset('img/cat.png')}}"/>
                 <x-radio id="type-2" value="แมว" label="แมว" wire:model.defer="regClient.pet_type" />
-            </span>
+            </label>
+
         </div>
 
 
@@ -149,18 +152,17 @@
     {{-- cat info --}}
     <div class="setup-content  min-h-[70vh] flex flex-col {{ $currentStep != 2 ? 'hidden' : '' }}" id="step-2-5">
         <div class="mt-8 pb-2">
-            <h3 class="text-center text-xl pb-2 font-bold text-primary-blue"> กรุณากรอกข้อมูลแมว </h3>
+            <h3 class="text-center text-xl pb-2 font-bold text-primary-blue"> กรุณากรอกข้อมูล {{$regClient['pet_type']}} </h3>
             <p class="text-center">
-                ที่ต้องการเข้าร่วมโปรแกรม<br>
-                {{env('APP_NAME')}}
+                ที่ต้องการตรวจสุขภาพ<br>
             </p>
         </div>
 
         <div class="grid gap-2 pb-8">
-            <x-input wire:model.defer="regClient.pet_name" label="ชื่อแมว" placeholder="ชื่อแมว" />
-            <x-input wire:model.defer="regClient.pet_breed" label="ชื่อสายพันธุ์แมว" placeholder="ชื่อสายพันธุ์แมว" />
+            <x-input wire:model.defer="regClient.pet_name" label="ชื่อ{{$regClient['pet_type']}}" placeholder="ชื่อ{{$regClient['pet_type']}}" />
+            <x-input wire:model.defer="regClient.pet_breed" label="ชื่อสายพันธุ์{{$regClient['pet_type']}}" placeholder="ชื่อสายพันธุ์{{$regClient['pet_type']}}" />
 
-            เลือกช่วงน้ำหนักของ{{$regClient['pet_type']}}
+            เลือกช่วงน้ำหนักของ {{$regClient['pet_type']}}
             <div class="grid grid-cols-2 gap-2">
                 <span class="my-2">
                     <x-radio id="weigth-1" value="1.25-2.5 กก." label="1.25-2.5 กก." wire:model.defer="regClient.pet_weight" />
@@ -203,7 +205,7 @@
     {{-- cat more info --}}
     <div class="setup-content  min-h-[70vh] flex flex-col {{ $currentStep != 2.5 ? 'hidden' : '' }}" id="step-2-5">
         <div class="mt-8 pb-2">
-            <h3 class="text-center text-xl pb-2 font-bold text-primary-blue"> กรุณากรอกข้อมูลแมว </h3>
+            <h3 class="text-center text-xl pb-2 font-bold text-primary-blue"> กรุณากรอกข้อมูล{{$regClient['pet_type']}} </h3>
             <p class="text-center">
                 ที่ต้องการตรวจสุขภาพ<br>
                 {{env('APP_NAME')}}
@@ -246,9 +248,8 @@
             <h3 class="font-bold">
                 เลือกคลินิก หรือโรงพยาบาลสัตว์
             </h3>
-            <p>ที่ต้องการรับคำปรึกษาและ<br>
-                เข้าร่วมโปรแกรม {{env('APP_NAME')}}<br>
-                กรุณาเลือกที่อยู่ของ <u>คลินิกหรือโรงพยาบาลสัตว์ที่ท่านสะดวก</u>
+            <p>ที่ท่านสะดวกเข้าร่วมโปรแกรมตรวจสุขภาพ<br>
+                {{-- กรุณาเลือกที่อยู่ของ <u>คลินิกหรือโรงพยาบาลสัตว์ที่ท่านสะดวก</u> --}}
             </p>
         </div>
 

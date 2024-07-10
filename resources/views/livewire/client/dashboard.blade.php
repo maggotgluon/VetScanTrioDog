@@ -32,17 +32,16 @@
         <h3 class="text-center text-xl my-4 p-4 font-bold text-white bg-primary-blue"> การลงทะเบียนเสร็จสมบูรณ์ </h3>
         
         <p class="text-center">
-            ท่านได้รับสิทธิ์ รับคำปรึกษา <br>
-            และเข้าร่วมโปรแกรม {{env('APP_NAME')}}<br>
-            {{env('APP_TAGLINE')}}
+            มาตรวจสุขภาพวันนี้ กับโปรแกรมตรวจสุขภาพ<br>
+            ที่ใช้เลือดปริมาณน้อยรู้ผลภายใน 12 นาที<br>
+            
         </p>
         <img class="my-4" src="{{asset('/img/app-banner.png')}}"/>
         <p class="text-center">
-            สามารถพา {{$client->pet_name}}<br>
+            สามารถพาน้อง {{$client->pet_name}}<br>
             ขนาด {{$client->pet_weight}}<br>
-            ไปรับคำปรึกษา
-            และเข้าร่วมโปรแกรม <br>{{env('APP_NAME')}}<br>
-            ได้ที่โรงพยาบาล/คลินิก {{$client->vet_id?App\Models\Vet::find($client->vet_id)->vet_name:'-'}}<br>
+            เข้าร่วมโปรแกรมตรวจสุขภาพ ที่โรงพยาบาลสัตว์<br>
+            {{$client->vet_id?App\Models\Vet::find($client->vet_id)->vet_name:'-'}}<br>
         </p>
         <p class="text-center text-sm text-secondary-red">
             กรุณากดรับสิทธิ์ขณะอยู่ที่คลินิกตามที่ลงทะเบียน <br>
@@ -170,8 +169,8 @@
         <p class="text-center mb-8">
             น้อง {{$client->pet_name}}<br>
             ขนาด {{$client->pet_weight}}<br>
-            ไปรับคำปรึกษา และเข้าร่วมโปรแกรม {{env('APP_NAME')}}<br>
-            ที่ {{$client->vet_id?App\Models\Vet::find($client->vet_id)->vet_name:'-'}}<br>
+            เข้าร่วมโปรแกรมตรวจสุขภาพ ที่โรงพยาบาลสัตว์<br>
+            {{$client->vet_id?App\Models\Vet::find($client->vet_id)->vet_name:'-'}}<br>
         </p>
         <p class="text-center">
             รหัส

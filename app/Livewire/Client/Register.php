@@ -165,7 +165,7 @@ class Register extends Component
             'regClient.*.required'=>'จำเป็นต้องระบุ',
         ]);
         // go next
-        dd($this->regClient);
+        // dd($this->regClient);
         $this->currentStep = 3;
     }
 
@@ -184,6 +184,11 @@ class Register extends Component
             'email'=>$this->regClient['email']??null,
             'name'=>$this->regClient['firstname'].' '.$this->regClient['lastname'],
             'phoneIsVerified'=>$this->regClient['pin']??"-",
+            
+            'pet_type'=>$this->regClient['pet_type'],
+            'pet_vet_check'=>$this->regClient['vet_check'],
+            'pet_chronic_disease'=>$this->regClient['ChronicDisease'],
+
             'pet_name'=>$this->regClient['pet_name'],
             'pet_breed'=>$this->regClient['pet_breed'],
             'pet_weight'=>$this->regClient['pet_weight'],
@@ -193,7 +198,7 @@ class Register extends Component
             'active_status'=>'pending',
             'client_code'=>0,
         ]);
-        $client->client_code = 'REVO'.Str::padLeft($client->id, 5, '0');
+        $client->client_code = 'VETSCAN'.Str::padLeft($client->id, 5, '0');
         // dd($client);
         $client->save();
 

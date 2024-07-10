@@ -23,6 +23,11 @@ class client extends Model
         'pet_weight',
         'pet_age_month',
         'pet_age_year',
+        
+        'pet_type',
+        'pet_vet_check',
+        'pet_chronic_disease',
+
         'option_1',
         'option_2',
         'option_3',

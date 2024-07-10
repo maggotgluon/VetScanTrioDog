@@ -26,6 +26,10 @@ return new class extends Migration
             $table->integer('pet_age_month')->nullable();
             $table->integer('pet_age_year')->nullable();
 
+            $table->string('pet_type')->nullable();
+            $table->string('pet_vet_check')->nullable();
+            $table->string('pet_chronic_disease')->nullable();
+
             $table->integer('option_1')->nullable();
             $table->integer('option_2')->nullable();
             $table->integer('option_3')->nullable();

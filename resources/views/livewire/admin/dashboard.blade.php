@@ -113,7 +113,7 @@
                     </th>
                     <th class="hidden md:table-cell">
                         <div class="grid">
-                            <x-button primary-blue flat class="pointer-events-none text-white hover:bg-white/20"  label="น้ำหนัก แมว"/>
+                            <x-button primary-blue flat class="pointer-events-none text-white hover:bg-white/20"  label="น้ำหนัก"/>
                             <x-badge primary label="Pet's weight"/>
                         </div>
                     </th>

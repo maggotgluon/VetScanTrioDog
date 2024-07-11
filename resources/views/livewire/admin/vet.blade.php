@@ -155,7 +155,11 @@
                         </th>
                         @endif
                         <th class="w-24 hidden md:table-cell text-primary-lite">
-                                <x-button flat white class="pointer-events-none" label="น้ำหนัก  แมว"/><br>
+                                <x-button flat white class="pointer-events-none" label="ชนิด"/><br>
+                                <x-badge primary label="Kind" />
+                        </th>
+                        <th class="w-24 hidden md:table-cell text-primary-lite">
+                                <x-button flat white class="pointer-events-none" label="น้ำหนัก"/><br>
                                 <x-badge primary label="Pet's weight" />
                         </th>
                         <th class="w-24 hidden md:table-cell">

@@ -197,24 +197,22 @@
                         </td>
                         @endif
                         @if(env('VET_OPTION_3'))
-                        <td class="align-top md:border mx-2 whitespace-nowrap border-primary-blue p-2 hidden w-full md:w-auto md:table-cell md:text-center ">
-                            @if($client->option_3 )
-                            <x-badge.circle positive icon="check" class="w-5 h-5 m-auto p-2 inline-block" />
-                            @endif
-                        </td>
-                        @if(env('VET_OPTION_3_option'))
+                            <td class="align-top md:border mx-2 whitespace-nowrap border-primary-blue p-2 hidden w-full md:w-auto md:table-cell md:text-center ">
+                                @if($client->option_3 )
+                                <x-badge.circle positive icon="check" class="w-5 h-5 m-auto p-2 inline-block" />
+                                @endif
+                            </td>
+                            @if(env('VET_OPTION_3_option'))
                             <td class="align-top md:border mx-2 whitespace-nowrap border-primary-blue p-2 hidden w-full md:w-auto md:table-cell md:text-center ">
                                 @if($client->option_3 )
                                 <span class="md:hidden inline-block min-w-max mx-2 my-1">เข้าร่วมโปรแกรม </span>{{ $client->option_3 }} เดือน
                                 @endif
-
                             </td>
+                            @endif
                         @endif
-
                         <td class="align-top border whitespace-nowrap border-primary-blue p-2 block md:table-cell">
                             {{$client->pet_type}}
                         </td>
-                        @endif
                         <td class="align-top md:border mx-2 whitespace-nowrap border-primary-blue p-2 md:text-center table w-full md:w-auto md:table-cell">
                             <ul class="md:hidden">
                                 @if($client->option_1)

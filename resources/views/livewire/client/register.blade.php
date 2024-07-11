@@ -5,7 +5,7 @@
     </div>
     {{-- progress bar --}}
     <div class="flex justify-around relative {{$currentStep>=2? '' : 'hidden'}}">
-        <progress value={{$currentStep}} max="5" style="
+        <progress value={{$currentStep%5}} max="5" style="
             position: absolute;
             top: calc(50% - .25rem);
             bottom: calc(50% - .25rem);
@@ -16,7 +16,12 @@
             z-index: 0;
         ">
         </progress>
-        <x-button.circle  label="1" style="aspect-ratio: 1/1; z-index:1;"  class="rounded-full font-bold 
+
+        <x-button.circle  label="1" style="aspect-ratio: 1/1; z-index:1;" class="rounded-full font-bold ring {{ $currentStep==1? 'bg-primary-blue ring-primary-blue hover:text-primary-blue text-white' : ($currentStep>=1 ? 'bg-primary-blue !ring-primary-blue hover:text-primary-blue hover:bg-primary-lite text-white' : 'text-secondary-red ring-gray-dark bg-white' )}}" />
+        <x-button.circle  label="2" style="aspect-ratio: 1/1; z-index:1;" class="rounded-full font-bold ring {{ $currentStep==2? 'bg-primary-blue ring-primary-blue hover:text-primary-blue text-white' : ($currentStep>=2 ? 'bg-primary-blue !ring-primary-blue hover:text-primary-blue hover:bg-primary-lite text-white' : 'text-secondary-red ring-gray-dark bg-white' )}}" />
+        <x-button.circle  label="3" style="aspect-ratio: 1/1; z-index:1;" class="rounded-full font-bold ring {{ $currentStep==3? 'bg-primary-blue ring-primary-blue hover:text-primary-blue text-white' : ($currentStep>=3 ? 'bg-primary-blue !ring-primary-blue hover:text-primary-blue hover:bg-primary-lite text-white' : 'text-secondary-red ring-gray-dark bg-white' )}}" />
+        <x-button.circle  label="4" style="aspect-ratio: 1/1; z-index:1;" class="rounded-full font-bold ring {{ $currentStep==4? 'bg-primary-blue ring-primary-blue hover:text-primary-blue text-white' : ($currentStep>=4 ? 'bg-primary-blue !ring-primary-blue hover:text-primary-blue hover:bg-primary-lite text-white' : 'text-secondary-red ring-gray-dark bg-white' )}}" />
+        {{-- <x-button.circle  label="1" style="aspect-ratio: 1/1; z-index:1;"  class="rounded-full font-bold 
             {{$currentStep!=1? 'text-secondary-red ring ring-gray-dark bg-white' : 'bg-primary-blue  ring ring-primary-blue hover:text-primary-blue text-white'}} 
             {{$currentStep>=1?'text-primary-blue ring-primary-blue':''}}" />
         <x-button.circle  label="2" style="aspect-ratio: 1/1; z-index:1;"  class="rounded-full font-bold 
@@ -27,7 +32,7 @@
             {{$currentStep>=3?'text-primary-blue ring-primary-blue':''}}" />
         <x-button.circle  label="4" style="aspect-ratio: 1/1; z-index:1;"  class="rounded-full font-bold 
             {{$currentStep!=4? 'text-secondary-red ring ring-gray-dark bg-white' : 'bg-primary-blue  ring ring-primary-blue hover:text-primary-blue text-white'}} 
-            {{$currentStep>=4?'text-primary-blue ring-primary-blue':''}}" disabled="disabled" />
+            {{$currentStep>=4?'text-primary-blue ring-primary-blue':''}}" disabled="disabled" /> --}}
     </div>
     <x-errors title="เกิดข้อผิดพลาด"/>
     {{-- firstpage --}}
@@ -219,7 +224,6 @@
             <h3 class="text-center text-xl pb-2 font-bold text-primary-blue"> กรุณากรอกข้อมูล{{$regClient['pet_type']}} </h3>
             <p class="text-center">
                 ที่ต้องการตรวจสุขภาพ<br>
-                {{env('APP_NAME')}}
             </p>
         </div>
 

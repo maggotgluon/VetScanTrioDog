@@ -16,7 +16,14 @@ class Dashboard extends Component
 
     public $request;
     public $error;
-    
+
+    public $x=1;
+    public function backx($num=1){
+        $this->x-=$num;
+    }
+    public function nextx($num=1){
+        $this->x+=$num;
+    }
     public function resetStatus(){
         $this->client->active_status="reset";
         $this->client->save();

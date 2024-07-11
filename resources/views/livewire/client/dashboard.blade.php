@@ -4,11 +4,43 @@
         @if($errors->count() >0)
             error : <span>{{ var_dump($errors) }}</span>
         @endif
+
+
+        <div class="hidden">
+            <div class="flex justify-around relative">
+                <progress value="{{$x%5}}" max="5" style="
+                    position: absolute;
+                    top: calc(50% - .25rem);
+                    bottom: calc(50% - .25rem);
+                    left: auto;
+                    right: auto;
+                    height:0.5rem;
+                    width: calc(100% - 5rem);
+                    z-index: 0;
+                ">
+                </progress>
+                
+                <x-button.circle  label="1" style="aspect-ratio: 1/1; z-index:1;" class="rounded-full font-bold ring {{ $x==1? 'bg-primary-blue ring-primary-blue hover:text-primary-blue text-white' : ($x>=1 ? 'bg-primary-blue !ring-primary-blue hover:text-primary-blue hover:bg-primary-lite text-white' : 'text-secondary-red ring-gray-dark bg-white' )}}" />
+                <x-button.circle  label="2" style="aspect-ratio: 1/1; z-index:1;" class="rounded-full font-bold ring {{ $x==2? 'bg-primary-blue ring-primary-blue hover:text-primary-blue text-white' : ($x>=2 ? 'bg-primary-blue !ring-primary-blue hover:text-primary-blue hover:bg-primary-lite text-white' : 'text-secondary-red ring-gray-dark bg-white' )}}" />
+                <x-button.circle  label="3" style="aspect-ratio: 1/1; z-index:1;" class="rounded-full font-bold ring {{ $x==3? 'bg-primary-blue ring-primary-blue hover:text-primary-blue text-white' : ($x>=3 ? 'bg-primary-blue !ring-primary-blue hover:text-primary-blue hover:bg-primary-lite text-white' : 'text-secondary-red ring-gray-dark bg-white' )}}" />
+                <x-button.circle  label="4" style="aspect-ratio: 1/1; z-index:1;" class="rounded-full font-bold ring {{ $x==4? 'bg-primary-blue ring-primary-blue hover:text-primary-blue text-white' : ($x>=4 ? 'bg-primary-blue !ring-primary-blue hover:text-primary-blue hover:bg-primary-lite text-white' : 'text-secondary-red ring-gray-dark bg-white' )}}" />
+            </div>
+
+            <x-button.circle  label="{{$x}}" style="aspect-ratio: 1/1; z-index:1;" class="rounded-full font-bold ring text-secondary-red ring-gray-dark"/>
+            <x-button.circle  label="{{$x}}" style="aspect-ratio: 1/1; z-index:1;" class="rounded-full font-bold ring bg-primary-blue ring-primary-blue hover:text-primary-blue text-white"/>
+            <x-button.circle  label="{{$x}}" style="aspect-ratio: 1/1; z-index:1;" class="rounded-full font-bold  bg-primary-blue !ring-primary-blue hover:text-primary-blue hover:bg-primary-lite text-white"/>
+            <x-button label="<<" wire:click="backx"/>
+            <x-button label="<|" wire:click="backx(.25)"/>
+            {{$x}}
+            <x-button label="|>" wire:click="nextx(.25)"/>
+            <x-button label=">>" wire:click="nextx"/>
+        </div>
     @endif
     <div class="text-center absolute inset-0 z-50 " wire:loading>
         <img class="m-auto" src="{{asset('/img/loading.gif')}}"/>
     </div>
     
+
     <div class="row setup-content  min-h-[70vh] flex flex-col {{ $currentStep != 1 ? 'hidden' : '' }}" id="step-4">
         {{-- progress bar --}}
         <div class="flex justify-around relative">

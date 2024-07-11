@@ -13,6 +13,7 @@
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.4",
         "opcodesio/log-viewer": "^3.1",
+        "symfony/polyfill-iconv": "^1.30",
         "wireui/wireui": "^1.18"
     },
     "require-dev": {

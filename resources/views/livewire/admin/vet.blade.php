@@ -35,7 +35,7 @@
                     </span>
                 </div>
             </div>
-            <p class="mt-4 flex gap-2"> 
+            {{-- <p class="mt-4 flex gap-2"> 
                 <span>รับคำปรึกษาและเข้าร่วมโปรแกรม {{env('APP_NAME')}} <br>
                     <x-badge label="(Get free consultation and a tablet)"/></span>
                 <span class="font-bold text-xl text-black/70">
@@ -56,9 +56,9 @@
                 <span class="font-bold text-xl text-black/70">
                     {{$vet->stock->clients->where('option_3')->count()}}
                 </span>
-            </p>
+            </p> --}}
         </div>
-        <div>
+        {{-- <div>
             <div class="flex gap-2 justify-end">
                 <div class=" rounded-2xl text-black/70 p-2 shadow-lg ">
                     สิทธิ์ทั้งหมด
@@ -98,15 +98,15 @@
                     <x-button primary class="my-4" label="บันทึก" wire:click="add_stock_adj" />
                 </div>
             @endcan
-        </div>
+        </div> --}}
     </div>
     @if(env('APP_DEBUG'))
-    <x-button label="{{$rmkt?'Re-Markweting Client':'Client'}}" wire:click="toggleRmkt" />
+    {{-- <x-button label="{{$rmkt?'Re-Markweting Client':'Client'}}" wire:click="toggleRmkt" /> --}}
     @endif
     @if ($rmkt)
-    <div class="mt-7">
+    {{-- <div class="mt-7">
         <livewire:admin.rmkt-client :id='802390' />
-    </div>
+    </div> --}}
     @else
     <div>
         <!-- updated_at | desc -->
@@ -210,6 +210,10 @@
 
                             </td>
                         @endif
+
+                        <td class="align-top border whitespace-nowrap border-primary-blue p-2 block md:table-cell">
+                            {{$client->pet_type}}
+                        </td>
                         @endif
                         <td class="align-top md:border mx-2 whitespace-nowrap border-primary-blue p-2 md:text-center table w-full md:w-auto md:table-cell">
                             <ul class="md:hidden">

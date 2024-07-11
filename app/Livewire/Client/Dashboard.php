@@ -2,7 +2,9 @@
 
 namespace App\Livewire\Client;
 
+use App\Mail\mailConfirmation;
 use App\Models\client;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
@@ -133,5 +135,20 @@ class Dashboard extends Component
     }
     public function step($goto=null){
         $this->currentStep =$goto??$this->currentStep+1;
+    }
+
+    public function confirmation (){
+        $details = [
+            'email' => $this->regClient['email']??null,
+            'phone' => $this->regClient['phone'],
+            'pet_name' => $this->regClient['pet_name'],
+            'vet_name' => $this->regClient['vet']->vet_name,
+            'name' => $this->regClient['firstname'].' '.$this->regClient['lastname'],
+        ];
+        dd($this->client,$details);
+        if($this->regClient['email']){
+            $mail = new mailConfirmation($details);
+            Mail::to($this->regClient['email'])->send($mail);
+        }
     }
 }

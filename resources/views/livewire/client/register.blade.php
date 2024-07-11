@@ -16,10 +16,18 @@
             z-index: 0;
         ">
         </progress>
-        <x-button.circle  label="1" style="aspect-ratio: 1/1; z-index:1;"  class="rounded-full font-bold {{$currentStep!=1? 'text-secondary-red ring ring-gray-dark bg-white' : 'bg-primary-blue  ring ring-primary-blue hover:text-primary-blue text-gray-light'}} {{$currentStep>1?'text-primary-blue ring-primary-blue':''}}" />
-        <x-button.circle  label="2" style="aspect-ratio: 1/1; z-index:1;"  class="rounded-full font-bold {{$currentStep!=2? 'text-secondary-red ring ring-gray-dark bg-white' : 'bg-primary-blue  ring ring-primary-blue hover:text-primary-blue text-gray-light'}} {{$currentStep>2?'text-primary-blue ring-primary-blue':''}}" />
-        <x-button.circle  label="3" style="aspect-ratio: 1/1; z-index:1;"  class="rounded-full font-bold {{$currentStep!=3? 'text-secondary-red ring ring-gray-dark bg-white' : 'bg-primary-blue  ring ring-primary-blue hover:text-primary-blue text-gray-light'}} {{$currentStep>3?'text-primary-blue ring-primary-blue':''}}" />
-        <x-button.circle  label="4" style="aspect-ratio: 1/1; z-index:1;"  class="rounded-full font-bold {{$currentStep!=4? 'text-secondary-red ring ring-gray-dark bg-white' : 'bg-primary-blue  ring ring-primary-blue hover:text-primary-blue text-gray-light'}} {{$currentStep>4?'text-primary-blue ring-primary-blue':''}}" disabled="disabled" />
+        <x-button.circle  label="1" style="aspect-ratio: 1/1; z-index:1;"  class="rounded-full font-bold 
+            {{$currentStep!=1? 'text-secondary-red ring ring-gray-dark bg-white' : 'bg-primary-blue  ring ring-primary-blue hover:text-primary-blue text-white'}} 
+            {{$currentStep>=1?'text-primary-blue ring-primary-blue':''}}" />
+        <x-button.circle  label="2" style="aspect-ratio: 1/1; z-index:1;"  class="rounded-full font-bold 
+            {{$currentStep!=2? 'text-secondary-red ring ring-gray-dark bg-white' : 'bg-primary-blue  ring ring-primary-blue hover:text-primary-blue text-white'}} 
+            {{$currentStep>=2?'text-primary-blue ring-primary-blue':''}}" />
+        <x-button.circle  label="3" style="aspect-ratio: 1/1; z-index:1;"  class="rounded-full font-bold 
+            {{$currentStep!=3? 'text-secondary-red ring ring-gray-dark bg-white' : 'bg-primary-blue  ring ring-primary-blue hover:text-primary-blue text-white'}} 
+            {{$currentStep>=3?'text-primary-blue ring-primary-blue':''}}" />
+        <x-button.circle  label="4" style="aspect-ratio: 1/1; z-index:1;"  class="rounded-full font-bold 
+            {{$currentStep!=4? 'text-secondary-red ring ring-gray-dark bg-white' : 'bg-primary-blue  ring ring-primary-blue hover:text-primary-blue text-white'}} 
+            {{$currentStep>=4?'text-primary-blue ring-primary-blue':''}}" disabled="disabled" />
     </div>
     <x-errors title="เกิดข้อผิดพลาด"/>
     {{-- firstpage --}}
@@ -28,7 +36,7 @@
         <!-- $status -->
         <div class="text-center mt-8  py-4">
             มาตรวจสุขภาพวันนี้<br>
-            กับโปรแกรมตรวจสุขถาพ<br>
+            กับโปรแกรมตรวจสุขภาพ<br>
             ที่ใช้เลือดปริมาณน้อย<br>
             รู้ผลภายใน 12 นาที<br>
         </div>
@@ -99,7 +107,7 @@
                 @endisset
             </p>
         </div>
-        <div class="single-input-container flex gap-2 my-8">
+        <div class="single-input-container flex gap-2 my-8 justify-center">
             <x-input wire:model.defer="regClient.pin" type="text" maxlength="6" inputmode="numeric" />
         </div>
         
@@ -217,7 +225,7 @@
 
         <div class="grid gap-2 pb-8">
 
-            สัตว์เลิ้ยงของท่านตรวจสุขภาพครั้งสุดท้ายเมื่อไหร่
+            สัตว์เลี้ยงของท่านตรวจสุขภาพครั้งสุดท้ายเมื่อไหร่
             <div class="grid gap-2">
                 <span class="my-2">
                     <x-radio id="check-1" value="ไม่เคยตรวจเลย" label="ไม่เคยตรวจเลย" wire:model.defer="regClient.vet_check" />

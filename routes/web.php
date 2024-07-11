@@ -130,6 +130,24 @@ Route::name('email.')->prefix('email')->group(function (){
         // dd($c);
         return new mailRemarketing($c);
     })->name('remarketing');
+
+
+    Route::get('confirm/{mail?}',function($mail=null){
+        $client = client::first();
+        $details = [
+            'email' => $client->email??null,
+            'phone' => $client->phone,
+            'pet_name' => $client->pet_name,
+            'vet_name' => $client->vet->vet_name,
+            'name' => $client->name,
+        ];
+        // dd($client,$details);
+        return new mailConfirmation($details);
+        if($this->regClient['email']){
+            $mail = new mailConfirmation($details);
+            Mail::to($mail??'maggotgluon@gmail.com')->send($mail);
+        }
+    })->name('confirm');
 });
 
 

@@ -26,7 +26,7 @@ class downloads extends Controller
             "Expires"             => "0"
         );
     
-        $columns = array('code', 'name', 'email', 'phone', 'status', 'activate date','vet id', 'vet name' ,'Pet name', 'Pet bread', 'Pet Weight', 'Pet Age','option 1','option 2','option 3','create at','update at');
+        $columns = array('code', 'name', 'email', 'phone', 'status', 'activate date','vet id', 'pet type','vet name' ,'Pet name', 'Pet bread', 'Pet Weight', 'Pet Age','option 1','option 2','option 3','create at','update at');
     
         $callback = function() use($Clients, $columns) {
             $file = fopen('php://output', 'w');
@@ -48,12 +48,13 @@ class downloads extends Controller
                 $row['option 2']  = $Client->option_2??0;
                 $row['option 3']  = $Client->option_3??0;
     
+                $row['pettype']  = $Client->pet_type;
                 $row['petName']  = $Client->pet_name;
                 $row['petBreed']  = $Client->pet_breed;
                 $row['petWeight']  = $Client->pet_weight;
                 $row['petAge']  = $Client->pet_age_month.' Year '.$Client->pet_age_month.' Month';
     
-                fputcsv($file, array($row['code'], $row['name'], $row['email'], $row['phone'], $row['status'], $row['activate_date'], $row['vet_id'], $row['vet'], $row['petName'],$row['petBreed'],$row['petWeight'],$row['petAge'],$row['option 1'],$row['option 2'],$row['option 3'],$row['created_at'],$row['updated_at']));
+                fputcsv($file, array($row['code'],$row['pettype'], $row['name'], $row['email'], $row['phone'], $row['status'], $row['activate_date'], $row['vet_id'], $row['vet'], $row['petName'],$row['petBreed'],$row['petWeight'],$row['petAge'],$row['option 1'],$row['option 2'],$row['option 3'],$row['created_at'],$row['updated_at']));
             }
     
             fclose($file);

@@ -26,7 +26,7 @@ class downloads extends Controller
             "Expires"             => "0"
         );
     
-        $columns = array('code', 'name', 'email', 'phone', 'status', 'activate date','vet id', 'pet type','vet name' ,'Pet name', 'Pet bread', 'Pet Weight', 'Pet Age','option 1','option 2','option 3','create at','update at');
+        $columns = array('code', 'name', 'email', 'phone', 'status', 'activate date','vet id', 'pet type', 'last medical check', 'pet chronic disease','vet name' ,'Pet name', 'Pet bread', 'Pet Weight', 'Pet Age','option 1','option 2','option 3','create at','update at');
     
         $callback = function() use($Clients, $columns) {
             $file = fopen('php://output', 'w');
@@ -49,12 +49,14 @@ class downloads extends Controller
                 $row['option 3']  = $Client->option_3??0;
     
                 $row['pettype']  = $Client->pet_type;
+                $row['pet_vet_check']  = $Client->pet_vet_check;
+                $row['pet_chronic_disease']  = $Client->pet_chronic_disease;
                 $row['petName']  = $Client->pet_name;
                 $row['petBreed']  = $Client->pet_breed;
                 $row['petWeight']  = $Client->pet_weight;
                 $row['petAge']  = $Client->pet_age_month.' Year '.$Client->pet_age_month.' Month';
     
-                fputcsv($file, array($row['code'], $row['name'], $row['email'], $row['phone'], $row['status'], $row['activate_date'], $row['vet_id'], $row['vet'],$row['pettype'], $row['petName'],$row['petBreed'],$row['petWeight'],$row['petAge'],$row['option 1'],$row['option 2'],$row['option 3'],$row['created_at'],$row['updated_at']));
+                fputcsv($file, array($row['code'], $row['name'], $row['email'], $row['phone'], $row['status'], $row['activate_date'], $row['vet_id'], $row['vet'],$row['pettype'],$row['pet_vet_check'],$row['pet_chronic_disease'], $row['petName'],$row['petBreed'],$row['petWeight'],$row['petAge'],$row['option 1'],$row['option 2'],$row['option 3'],$row['created_at'],$row['updated_at']));
             }
     
             fclose($file);

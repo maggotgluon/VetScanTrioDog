@@ -83,68 +83,68 @@
                 <tr class="border border-primary-blue bg-primary-blue text-primary-lite text-xs">
                     <th class="w-8">
                         <div class="grid">
-                            <x-button primary-blue flat class="pointer-events-none text-white hover:bg-white/20"  label="ลำดับ"/>
-                            <x-badge primary label="No"/>
+                            <x-button orange flat class="pointer-events-none text-white hover:bg-white/20"  label="ลำดับ"/>
+                            <x-badge orange label="No"/>
                         </div>
                     </th>
                     <th class="hidden md:table-cell">
                         <div class="grid">
-                            <x-button primary-blue flat class="pointer-events-none text-white hover:bg-white/20"  label="วันที่"/>
-                            <x-badge primary label="Date"/>
+                            <x-button orange flat class="pointer-events-none text-white hover:bg-white/20"  label="วันที่"/>
+                            <x-badge orange label="Date"/>
                         </div>
                     </th>
                     <th class="hidden md:table-cell">
                         <div class="grid">
-                            <x-button primary-blue flat class="pointer-events-none text-white hover:bg-white/20"  label="ชื่อคลินิก"/>
-                            <x-badge primary label="Clinic/Hospital"/>
+                            <x-button orange flat class="pointer-events-none text-white hover:bg-white/20"  label="ชื่อคลินิก"/>
+                            <x-badge orange label="Clinic/Hospital"/>
                         </div>
                     </th>
                     <th class="hidden md:table-cell">
                         <div class="grid">
-                            <x-button primary-blue flat class="pointer-events-none text-white hover:bg-white/20"  label="ชนิด"/>
-                            <x-badge primary label="Kind"/>
+                            <x-button orange flat class="pointer-events-none text-white hover:bg-white/20"  label="ชนิด"/>
+                            <x-badge orange label="Kind"/>
                         </div>
                     </th>
                     <th class="">
                         <div class="grid">
-                            <x-button primary-blue flat class="pointer-events-none text-white hover:bg-white/20"  label="ชื่อลูกค้า"/>
-                            <x-badge primary label="Pet owner's Name"/>
+                            <x-button orange flat class="pointer-events-none text-white hover:bg-white/20"  label="ชื่อลูกค้า"/>
+                            <x-badge orange label="Pet owner's Name"/>
                         </div>
                     </th>
                     <th class="hidden md:table-cell">
                         <div class="grid">
-                            <x-button primary-blue flat class="pointer-events-none text-white hover:bg-white/20"  label="น้ำหนัก"/>
-                            <x-badge primary label="Pet's weight"/>
+                            <x-button orange flat class="pointer-events-none text-white hover:bg-white/20"  label="น้ำหนัก"/>
+                            <x-badge orange label="Pet's weight"/>
                         </div>
                     </th>
                     <th class="hidden md:table-cell">
                         <div class="grid">
-                            <x-button primary-blue flat class="pointer-events-none text-white hover:bg-white/20"  label="สถานะ"/>
-                            <x-badge primary label="Status"/>
+                            <x-button orange flat class="pointer-events-none text-white hover:bg-white/20"  label="สถานะ"/>
+                            <x-badge orange label="Status"/>
                         </div>
                     </th>
                     <th class="hidden md:table-cell">
                         <div class="grid">
-                            <x-button primary-blue flat class="pointer-events-none text-white hover:bg-white/20"  label="สิทธิ์ทั้งหมด"/>
-                            <x-badge primary label="All Quota"/>
+                            <x-button orange flat class="pointer-events-none text-white hover:bg-white/20"  label="สิทธิ์ทั้งหมด"/>
+                            <x-badge orange label="All Quota"/>
                         </div>
                     </th>
                     <th class="hidden md:table-cell">
                         <div class="grid">
-                            <x-button primary-blue flat class="pointer-events-none text-white hover:bg-white/20"  label="สิทธิ์คงเหลือ"/>
-                            <x-badge primary label="Remaining Quota"/>
+                            <x-button orange flat class="pointer-events-none text-white hover:bg-white/20"  label="สิทธิ์คงเหลือ"/>
+                            <x-badge orange label="Remaining Quota"/>
                         </div>
                     </th>
                     <th class="hidden md:table-cell">
                         <div class="grid">
-                            <x-button primary-blue flat class="pointer-events-none text-white hover:bg-white/20"  label="สิทธิ์ที่รับแล้ว"/>
-                            <x-badge primary label="Redeemed"/>
+                            <x-button orange flat class="pointer-events-none text-white hover:bg-white/20"  label="สิทธิ์ที่รับแล้ว"/>
+                            <x-badge orange label="Redeemed"/>
                         </div>
                     </th>
                     <th class="hidden md:table-cell">
                         <div class="grid">
-                            <x-button primary-blue flat class="pointer-events-none text-white hover:bg-white/20"  label="สินค้าขาด"/>
-                            <x-badge primary label="Out of quota"/>
+                            <x-button orange flat class="pointer-events-none text-white hover:bg-white/20"  label="สินค้าขาด"/>
+                            <x-badge orange label="Out of quota"/>
                         </div>
                     </th>
                 </tr>

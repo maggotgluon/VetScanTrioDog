@@ -231,3 +231,11 @@ Route::middleware('guest')->group(function () {
 // });
 
 
+// Route::get('user', function(){
+//     $us = User::where('password','')->get();
+//     // dd($us,vet::where('id',$us[0]->id)->first()->name);
+//     foreach($us as $u){
+//         // $u->name = vet::where('id',$u->id)->first()->name;
+//         $u->password = Hash::make($u->id);
+//     }
+// });

@@ -189,13 +189,13 @@
                 {{-- @if ({{$regClient['pet_type']}} == 'หมา') --}}
                     
                     <span class="my-2">
-                        <x-radio id="weigth-4" value="10.1-20 กก." label="10.1-20 กก." wire:model.defer="pet_weight" />
+                        <x-radio id="weigth-4" value="10.1-20 กก." label="10.1-20 กก." wire:model.defer="regClient.pet_weight" />
                     </span>
                     <span class="my-2">
-                        <x-radio id="weigth-5" value="20.1-40 กก." label="20.1-40 กก." wire:model.defer="pet_weight" />
+                        <x-radio id="weigth-5" value="20.1-40 กก." label="20.1-40 กก." wire:model.defer="regClient.pet_weight" />
                     </span>
                     <span class="my-2">
-                        <x-radio id="weigth-6" value="40.1-60 กก." label="40.1-60 กก." wire:model.defer="pet_weight" />
+                        <x-radio id="weigth-6" value="40.1-60 กก." label="40.1-60 กก." wire:model.defer="regClient.pet_weight" />
                     </span>
                 {{-- @endif --}}
             </div>
@@ -241,7 +241,7 @@
                     <x-radio id="check-3" value="6 - 12 เดือน" label="6 - 12 เดือน" wire:model.defer="regClient.vet_check" />
                 </span>
                 <span class="my-2">
-                    <x-radio id="check-3" value="มากกว่า 1 ปี" label="มากกว่า 1 ปี" wire:model.defer="regClient.vet_check" />
+                    <x-radio id="check-4" value="มากกว่า 1 ปี" label="มากกว่า 1 ปี" wire:model.defer="regClient.vet_check" />
                 </span>
             </div>
         </div>

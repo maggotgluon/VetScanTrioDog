@@ -54,7 +54,7 @@ class downloads extends Controller
                 $row['petWeight']  = $Client->pet_weight;
                 $row['petAge']  = $Client->pet_age_month.' Year '.$Client->pet_age_month.' Month';
     
-                fputcsv($file, array($row['code'],$row['pettype'], $row['name'], $row['email'], $row['phone'], $row['status'], $row['activate_date'], $row['vet_id'], $row['vet'], $row['petName'],$row['petBreed'],$row['petWeight'],$row['petAge'],$row['option 1'],$row['option 2'],$row['option 3'],$row['created_at'],$row['updated_at']));
+                fputcsv($file, array($row['code'], $row['name'], $row['email'], $row['phone'], $row['status'], $row['activate_date'], $row['vet_id'], $row['vet'],$row['pettype'], $row['petName'],$row['petBreed'],$row['petWeight'],$row['petAge'],$row['option 1'],$row['option 2'],$row['option 3'],$row['created_at'],$row['updated_at']));
             }
     
             fclose($file);
